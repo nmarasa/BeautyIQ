@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from app.ai_insights import generate_ai_insights
 
 reviews = pd.read_csv(
     "data/processed/skincare_reviews_clean.csv"
@@ -296,3 +297,22 @@ else:
         )
         st.write(review["review_text"])
         st.divider()
+
+
+st.subheader("AI Review Insights")
+
+st.caption(
+    "Uses AI to synthesize recurring themes from a sample of "
+    "low-rated customer reviews for the selected product."
+)
+
+if st.button("Generate AI Insights"):
+
+    with st.spinner("Analyzing customer reviews..."):
+
+        ai_insights = generate_ai_insights(
+            selected_product,
+            reviews
+        )
+
+    st.write(ai_insights)
