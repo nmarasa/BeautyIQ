@@ -19,7 +19,7 @@ this dashboard is intended for people working in areas like:
 
 ## data i want
 ideally the dataset should include:
-- skin tyle
+- skin type
 - hair type
 - verified purchase
 - recommendation status
